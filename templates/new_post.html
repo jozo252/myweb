@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}New Post - Casual Flask App{% endblock %}
+
+{% block content %}
+  <h1>New Post</h1>
+  <form method="post">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Add a post title" required>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="6" placeholder="Write something casual..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Publish</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

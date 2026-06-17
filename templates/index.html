@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Elektroinštalácie Vysoké Tatry a okolie</title>
+  <meta name="description" content="Elektroinštalácie pre rodinné domy, byty a rekonštrukcie v okolí Vysokých Tatier. Rozvádzače, zásuvky, svetlá, LED osvetlenie a drobné elektro práce." />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #facc15;
+      --accent-dark: #eab308;
+      --border: #1f2937;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--white);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(250, 204, 21, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      color: var(--white);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--white);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #111827, #0b1120);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .hero-card h3 {
+      color: var(--white);
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .checklist {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+    }
+
+    .checklist li {
+      color: var(--muted);
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .service-card h3 {
+      color: var(--white);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .about-box h3 {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      min-height: 210px;
+      border-radius: 16px;
+      background: #1f2937;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-align: center;
+      
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 32px;
+    }
+
+    .contact-info,
+    form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .contact-info h3,
+    form h3 {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-info strong {
+      color: var(--white);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0b1120;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services,
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 60px 0 50px;
+      }
+
+      .services,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+    .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo"><span>Elektroinštalácie</span></div>
+
+      <nav class="nav-links">
+        <a href="#sluzby">Služby</a>
+        <a href="#praca">Práca</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="badge">Elektroinštalácie • Vysoké Tatry a okolie</div>
+
+          <h1>Elektroinštalácie pre domy, byty a rekonštrukcie.</h1>
+
+          <p>
+            Pomáham s novými elektroinštaláciami, rekonštrukciami, rozvádzačmi,
+            zapojením svetiel, zásuviek a LED osvetlením. Pracujem prehľadne,
+            komunikujem normálne a viem pripraviť jednoduchú cenovú ponuku.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="tel:+421917630167">Zavolať</a>
+            <a class="btn btn-secondary" href="#kontakt">Napísať správu</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Čo riešim najčastejšie</h3>
+          <ul class="checklist">
+            <li>Elektroinštalácie v novostavbách</li>
+            <li>Rekonštrukcie bytov a domov</li>
+            <li>Rozvádzače a zapojenie okruhov</li>
+            <li>Zásuvky, vypínače, svetlá</li>
+            <li>LED pásy a dekoračné osvetlenie</li>
+            <li>Drobné elektro práce podľa dohody</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="sluzby">
+      <div class="container">
+        <div class="section-title">
+          <h2>Služby</h2>
+          <p>
+            Zameriavam sa hlavne na praktické elektro práce pre domácnosti,
+            rekonštrukcie a menšie stavby.
+          </p>
+        </div>
+
+        <div class="services">
+          <div class="service-card">
+            <h3>Novostavby</h3>
+            <p>Príprava a realizácia elektroinštalácie v rodinných domoch podľa dohody alebo projektu.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Rekonštrukcie</h3>
+            <p>Výmena starej elektroinštalácie, nové zásuvky, vypínače, svetelné okruhy a úpravy rozvodov.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Rozvádzače</h3>
+            <p>Zapojenie a úpravy domových rozvádzačov, ističov, prúdových chráničov a prepäťovej ochrany.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Svetlá a zásuvky</h3>
+            <p>Montáž svietidiel, zásuviek, vypínačov, príprava vývodov a drobné dokončovacie práce.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>LED osvetlenie</h3>
+            <p>LED pásy, nepriame osvetlenie, dekoračné riešenia do izieb, kuchýň alebo podhľadov.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Cenová ponuka</h3>
+            <p>Po obhliadke alebo popise práce viem pripraviť jednoduchú a zrozumiteľnú cenovú ponuku.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="omne">
+      <div class="container about">
+        <div class="section-title">
+          <h2>O mne</h2>
+          <p>
+            Nie som veľká firma. Som človek, ktorý chce robiť remeslo poriadne,
+            komunikovať jasne a budovať si meno na lokálnom trhu.
+          </p>
+        </div>
+
+        <div class="about-box">
+          <h3>O mne</h3>
+          <p>
+            Mám skúsenosti zo stavieb, elektroinštalácií a technických riešení.
+            Popri práci sa venujem aj programovaniu a automatizácii, preto sa snažím
+            robiť veci systematicky, prehľadne a bez zbytočného chaosu.
+          </p>
+          <p>
+            Pri zákazke je pre mňa dôležité, aby bolo jasné čo sa ide robiť,
+            koľko to bude približne stáť a aby po práci ostal poriadok.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="praca">
+      <div class="container">
+        <div class="section-title">
+          <h2>Ukážky práce</h2>
+         
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item"><img src="/static/images/elektro1.JPG" alt="FOTOGRAFIA"></div>
+          <div class="gallery-item"><img src="/static/images/elektro3.JPG" alt="FOTOGRAFIA"></div>
+          <div class="gallery-item"><img src="/static/images/elektro3.JPEG" alt="FOTOGRAFIA"></div>
+          <div class="gallery-item"><img src="/static/images/elektro4.JPG" alt="FOTOGRAFIA"></div>
+          <div class="gallery-item"><img src="/static/images/elektro5.JPG" alt="FOTOGRAFIA"></div>
+          <div class="gallery-item"><img src="/static/images/elektro6.JPG" alt="FOTOGRAFIA"></div>
+
+         
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Kontakt</h2>
+          <p>
+            Najlepšie je poslať krátky popis práce, lokalitu a pár fotiek.
+            Potom sa dá rýchlejšie povedať, či to viem zobrať a približne naceniť.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <h3>Kontaktné údaje</h3>
+            <p><strong>Telefón:</strong><br><a href="tel:+421917630167">+421917630167</a></p>
+            <p><strong>E-mail:</strong><br><a href="mailto:contact@elektro.gallax.io">contact@elektro.gallax.io</a></p>
+            <p><strong>Lokalita:</strong><br>Vysoké Tatry a okolie</p>
+            <p><strong>Dostupnosť:</strong><br>Podľa dohody</p>
+          </div>
+
+          <!-- 
+            Ak máš Flask backend:
+            action="/kontakt" method="POST"
+
+            Ak chceš zatiaľ staticky bez backendu:
+            môžeš použiť napr. FormSubmit:
+            action="https://formsubmit.co/tvoj@email.sk" method="POST"
+          -->
+          
+          
+        
+          <form id="quickForm" 
+           action="{{ url_for('contact') }}"
+            method="POST">
+            <h3>Napísať správu</h3>
+
+            <div class="form-group">
+              <label for="name">Meno</label>
+              <input type="text" id="name" name="name" placeholder="Vaše meno" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefón</label>
+              <input type="tel" id="phone" name="phone" placeholder="+421..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="vas@email.sk">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Popis práce</label>
+              <textarea id="message" name="message" placeholder="Napríklad: Potrebujem elektroinštaláciu v novostavbe, dom má cca 120 m²..." required></textarea>
+            </div>
+
+            <button class="btn btn-primary submit-btn" type="submit">
+              Odoslať správu
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Adam Elektro — Elektroinštalácie Vysoké Tatry a okolie
+    </div>
+  </footer>
+  
+</body>
+</html>

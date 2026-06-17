@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja firma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="hero">
+    <nav class="nav">
+        <div class="logo">MojaFirma</div>
+        <a href="#kontakt" class="nav-btn">Kontakt</a>
+    </nav>
+
+    <div class="hero-content">
+        <h1>Elektroinštalácie, montáže a servis</h1>
+        <p>
+            Robíme spoľahlivé elektro práce, menšie stavebné práce a technické montáže
+            pre domácnosti aj firmy.
+        </p>
+        <a href="#kontakt" class="btn">Poslať dopyt</a>
+    </div>
+</header>
+
+<section class="section">
+    <h2>Čo robíme</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Elektroinštalácie</h3>
+            <p>Nové rozvody, opravy, zásuvky, svetlá, rozvádzače a úpravy elektroinštalácie.</p>
+        </div>
+
+        <div class="card">
+            <h3>Montáže</h3>
+            <p>Technické montáže, príprava kabeláže, zapojenie zariadení a drobné stavebné práce.</p>
+        </div>
+
+        <div class="card">
+            <h3>Servis</h3>
+            <p>Rýchle riešenie problémov, obhliadka, nacenenie a férová komunikácia.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section dark">
+    <h2>Prečo zavolať práve nám</h2>
+    <p>
+        Žiadne veľké reči. Prídeme, pozrieme, povieme reálnu cenu a spravíme robotu poriadne.
+    </p>
+</section>
+
+<section id="kontakt" class="section contact">
+    <h2>Kontaktujte nás</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('contact') }}" method="POST" class="form">
+        <input type="text" name="name" placeholder="Meno" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="phone" placeholder="Telefón">
+        <textarea name="message" rows="6" placeholder="Popíšte, čo potrebujete..." required></textarea>
+
+        <button type="submit">Odoslať správu</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 MojaFirma. Všetky práva vyhradené.</p>
+</footer>
+
+</body>
+</html>
